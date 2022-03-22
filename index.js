@@ -18,9 +18,9 @@ async function getPost(id) {
   }
 }
 
-async function createPost(data) {
+async function createPost(payload) {
   try {
-    const { data } = create(data) 
+    const { data } = create(payload) 
     return data
   } catch (error) {
     console.log(error) 
@@ -36,9 +36,9 @@ async function deletePost(id) {
   }
 }
 
-async function updatePost(id, data) {
+async function updatePost(id, payload) {
   try {
-    const { data } = updateById(id, data) 
+    const { data } = updateById(id, payload) 
     return data
   } catch (error) {
     console.log(error) 

@@ -7,8 +7,48 @@ npm i fake-restapi-node
 
 ## USAGE
 
-```
-import { postFindAll } from 'fake-restapi-node'
+```js
+import { findAllPosts } from 'fake-restapi-node'
+// or
+const { findAllPosts } = require('fake-restapi-node')
 
-console.log(postFindAll())
+// express js
+
+app.get('/posts', async (req, res) => {
+  try {
+    const data = await findAllPosts()
+    res.json(data) // will get list of posts
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+// react js
+useEffect(() => {
+  retrievePosts()
+}, [])
+
+const retrievePosts = async () => {
+  const posts = await findAllPosts()
+  return posts
+}
+```
+
+## Resources
+### Post resources
+
+```js
+// findAllPosts => get all posts list
+// getPost => get post by id
+// createPost => create new post
+// deletePost => remove post by id
+// updatePost => update post by id
+
+const {
+  findAllPosts, 
+  createPost, 
+  getPost, 
+  deletePost, 
+  updatePost
+} = require('fake-restapi-node')
 ```
