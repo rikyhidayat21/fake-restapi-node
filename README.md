@@ -51,4 +51,28 @@ const {
   deletePost, 
   updatePost
 } = require('fake-restapi-node')
+
+
+// sample using express js
+// findAllPosts
+app.get("/posts", async (req, res) => {
+  try {
+    const data = await findAllPosts()
+    res.json(data) // will get list of posts
+  } catch (error) {
+    console.log(error)
+  } 
+})
+
+// getPost
+app.get("/posts/:id", async (req, res) => {
+  try {
+    const { id } = req.params
+    const data = await getPost(id)
+    res.json(data) // will get post by id 
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 ```
